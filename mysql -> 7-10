@@ -1,0 +1,85 @@
+create database aula;
+show databases;
+use aula;
+
+create table medico(
+codMed int primary key,
+nomeMed varchar(40) not null,
+dataNasc date not null,
+cpf char(11),
+cidade varchar(30) not null,
+especialidade varchar(50) not null
+);
+
+show databases;
+create table paciente(
+codPac int primary key,
+nomePac varchar(40) not null,
+dataNasc date not null,
+cpf char(11),
+cidade varchar(30) not null
+);
+
+show databases;
+create table consulta( 
+codMed int not null, 
+codPac int not null,
+data_consulta date not null,
+hora time not null,
+primary key(codMed, codPac),
+foreign key(codMed) references medico(codMed),
+foreign key(codPac) references paciente(codPac)
+);
+
+
+
+
+
+ 
+
+
+create database universidade;
+show databases;
+use universidade;	
+create table professor(
+codProf int primary key,
+nomeProf varchar(40) not null,
+area varchar(10) not null,
+cpf char(11),
+dataNasc date not null
+);
+
+create table disciplina(
+codDisci int primary key,
+nomeDisci varchar(40) not null,
+CH char(10)
+);
+
+create table ministra( 
+codProf int not null, 
+codDisci int not null,
+primary key(codProf, codDisci),
+foreign key(codProf) references professor(codProf),
+foreign key(codDisci) references disciplina(codDisci)
+);
+
+
+
+create database teste2;
+show databases;
+use teste2;
+create table cliente(
+a
+);
+
+create table produto(
+codProd int primary key,
+nome varchar(30),
+valor float
+);
+use aula1;
+drop table ministra;
+
+use universidade;
+alter table professor add formacao varchar(30);
+alter table disciplina add ementa varchar(100);
